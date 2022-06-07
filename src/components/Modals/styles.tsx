@@ -1,4 +1,14 @@
 import styled from "styled-components"
+import { ModalPosition } from "../../ts/interfaces/modal.interface"
+
+interface PropsOverlay {
+	showOverlay: boolean
+	position: ModalPosition
+}
+
+interface PropsModalContainer {
+	padding: string
+}
 
 export const ModalButtonsContainer = styled.div`
 	padding: 40px;
@@ -23,26 +33,27 @@ export const ModalButton = styled.button`
 		background-color: #0066ff;
 	}
 `
-export const Overlay = styled.div`
+export const Overlay = styled.div<PropsOverlay>`
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
 	top: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: ${props =>
+		props.showOverlay ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)"};
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: ${props => (props.position ? props.position : "center")};
 	padding: 40px;
 `
-export const ModalContainer = styled.div`
+export const ModalContainer = styled.div<PropsModalContainer>`
 	width: 500px;
 	min-height: 100px;
 	background-color: #fff;
 	position: relative;
 	border-radius: 5px;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	padding: 20px;
+	padding: ${props => (props.padding ? props.padding : "20px")};
 `
 export const ModalHeader = styled.div`
 	display: flex;

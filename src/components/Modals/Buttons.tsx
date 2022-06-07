@@ -1,9 +1,14 @@
 import * as S from "./styles"
 
-const Buttons = () => {
+interface Props {
+	show: boolean
+	setShow: (value: boolean) => void
+}
+
+const Buttons = ({ setShow, show }: Props) => {
 	return (
 		<S.ModalButtonsContainer>
-			<S.ModalButton>Modal 1</S.ModalButton>
+			<S.ModalButton onClick={() => setShow(!show)}>Modal 1</S.ModalButton>
 		</S.ModalButtonsContainer>
 	)
 }
