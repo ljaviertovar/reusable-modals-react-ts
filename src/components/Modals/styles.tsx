@@ -1,14 +1,23 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { ModalPosition } from "../../ts/interfaces/modal.interface"
 
 interface PropsOverlay {
 	showOverlay: boolean
 	position: ModalPosition
+	show: boolean
 }
-
 interface PropsModalContainer {
 	padding: string
 }
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 
 export const ModalButtonsContainer = styled.div`
 	padding: 40px;
@@ -34,6 +43,8 @@ export const ModalButton = styled.button`
 	}
 `
 export const Overlay = styled.div<PropsOverlay>`
+	/* opacity: ${props => (props.show ? 1 : 0)};
+	transition: opacity 600ms ease; */
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
@@ -45,6 +56,11 @@ export const Overlay = styled.div<PropsOverlay>`
 	align-items: center;
 	justify-content: ${props => (props.position ? props.position : "center")};
 	padding: 40px;
+
+	@media (prefers-reduced-motion: no-preference) {
+		animation-name: ${fadeIn};
+		animation-fill-mode: backwards;
+	}
 `
 export const ModalContainer = styled.div<PropsModalContainer>`
 	width: 500px;

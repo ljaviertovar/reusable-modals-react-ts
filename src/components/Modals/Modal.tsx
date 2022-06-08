@@ -1,6 +1,12 @@
+import { useCallback, useEffect, useRef } from "react"
 import PortalModal from "./PortalModal"
+
+import useOnClickOutside from "../../hooks/useOnClickOutside"
+
 import { ModalConfig } from "../../ts/interfaces/modal.interface"
+
 import * as S from "./styles"
+import "../../styles/modal.css"
 
 interface Props {
 	show: boolean
@@ -10,6 +16,29 @@ interface Props {
 }
 
 const Modal = ({ children, show, setShow, config }: Props) => {
+	const modalRef = useRef<HTMLDivElement>(null)
+
+	// handle what happens on click outside of modal
+	const handleClickOutside = () => setShow(false)
+
+	// handle what happens on key press
+	const handleKeyPress = useCallback((event: KeyboardEvent) => {
+		if (event.key === "Escape") setShow(false)
+	}, [])
+
+	useOnClickOutside(modalRef, handleClickOutside)
+
+	useEffect(() => {
+		if (show) {
+			// attach the event listener if the modal is shown
+			document.addEventListener("keydown", handleKeyPress)
+			// remove the event listener
+			return () => {
+				document.removeEventListener("keydown", handleKeyPress)
+			}
+		}
+	}, [handleKeyPress, show])
+
 	return (
 		<>
 			{show && (
@@ -17,8 +46,13 @@ const Modal = ({ children, show, setShow, config }: Props) => {
 					<S.Overlay
 						showOverlay={config.showOverlay}
 						position={config.position}
+						show={show}
+						style={{
+							animationDuration: "400ms",
+							animationDelay: "0",
+						}}
 					>
-						<S.ModalContainer padding={config.padding}>
+						<S.ModalContainer padding={config.padding} ref={modalRef}>
 							{config.showHeader && (
 								<S.ModalHeader>
 									<h3>{config.title}</h3>
