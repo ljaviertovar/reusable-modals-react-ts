@@ -1,9 +1,13 @@
 import styled, { keyframes } from "styled-components"
-import { ModalPosition } from "../../ts/interfaces/modal.interface"
+import {
+	ModalPositionX,
+	ModalPositionY,
+} from "../../ts/interfaces/modal.interface"
 
 interface PropsOverlay {
 	showOverlay: boolean
-	position: ModalPosition
+	positionX: ModalPositionX
+	positionY: ModalPositionY
 	show: boolean
 }
 interface PropsModalContainer {
@@ -26,35 +30,50 @@ export const ModalButtonsContainer = styled.div`
 	justify-content: center;
 	gap: 20px;
 `
-export const ModalButton = styled.button`
+export const ModalButtonPrimary = styled.button`
 	display: block;
 	padding: 10px 30px;
-	border-radius: 100px;
-	color: #fff;
-	border: none;
-	background-color: #1766dc;
-	cursor: pointer;
+	border-radius: 3px;
+	color: ${({ theme }) => theme.colors.btnText};
+	border: 1px solid ${({ theme }) => theme.colors.main};
+	background-color: ${({ theme }) => theme.colors.main};
 	font-family: "Robot", sans-serif;
 	font-weight: 500;
 	transition: 0.3s ease all;
 
 	&:hover {
-		background-color: #0066ff;
+		background-color: ${({ theme }) => theme.colors.shadowMain};
 	}
 `
+export const ModalButtonSecondary = styled.button`
+	display: block;
+	padding: 10px 30px;
+	border-radius: 3px;
+	color: ${({ theme }) => theme.colors.main};
+	border: 1px solid ${({ theme }) => theme.colors.main};
+	background-color: transparent;
+	font-family: "Robot", sans-serif;
+	font-weight: 500;
+	transition: 0.3s ease all;
+
+	&:hover {
+		background-color: ${({ theme }) => theme.colors.shadowMain};
+		color: ${({ theme }) => theme.colors.btnText};
+	}
+`
+
 export const Overlay = styled.div<PropsOverlay>`
-	/* opacity: ${props => (props.show ? 1 : 0)};
-	transition: opacity 600ms ease; */
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
 	top: 0;
 	left: 0;
 	background-color: ${props =>
-		props.showOverlay ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)"};
+		props.showOverlay ? "rgba(23, 23, 23, 0.8)" : "rgba(0, 0, 0, 0)"};
 	display: flex;
 	align-items: center;
-	justify-content: ${props => (props.position ? props.position : "center")};
+	justify-content: ${props => (props.positionX ? props.positionX : "center")};
+	align-items: ${props => (props.positionY ? props.positionY : "center")};
 	padding: 40px;
 
 	@media (prefers-reduced-motion: no-preference) {
@@ -64,25 +83,24 @@ export const Overlay = styled.div<PropsOverlay>`
 `
 export const ModalContainer = styled.div<PropsModalContainer>`
 	width: 500px;
-	min-height: 100px;
-	background-color: #fff;
+	min-height: 50px;
+	background-color: ${({ theme }) => theme.body};
 	position: relative;
 	border-radius: 5px;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	padding: ${props => (props.padding ? props.padding : "20px")};
 `
-export const ModalHeader = styled.div`
+export const ModalHeader = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
-	border-bottom: 1px solid #e8e8e8;
+	border-bottom: 1px solid ${({ theme }) => theme.text};
 
 	h3 {
 		font-weight: 500;
 		font-size: 16px;
-		color: #1766dc;
+		color: ${({ theme }) => theme.colors.main};
 		margin: 0;
 	}
 `
@@ -95,13 +113,12 @@ export const Close = styled.button`
 	height: 40px;
 	border: none;
 	background-color: transparent;
-	cursor: pointer;
 	transition: 0.3s ease all;
-	border-radius: 5px;
-	color: #1766dc;
+	border-radius: 3px;
+	color: ${({ theme }) => theme.colors.main};
 
 	&:hover {
-		background-color: #f2f2f2;
+		background-color: rgba(0, 0, 0, 0.2);
 	}
 
 	svg {
@@ -114,6 +131,7 @@ export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	color: ${({ theme }) => theme.text};
 
 	h1 {
 		font-size: 42px;
@@ -131,4 +149,14 @@ export const Content = styled.div`
 		vertical-align: top;
 		border-radius: 3px;
 	}
+`
+export const ModalFooter = styled.footer`
+	width: 100%;
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid ${({ theme }) => theme.text};
 `

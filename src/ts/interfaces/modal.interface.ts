@@ -1,15 +1,26 @@
+export interface ModalConfigDummy {
+	modal1: ModalConfig
+	modal2: ModalConfig
+	modal3: ModalConfig
+	modal4: ModalConfig
+}
 export interface ModalConfig {
 	title: string
 	showHeader: boolean
-	showOverlay: boolean
-	position: ModalPosition
+	positionX: ModalPositionX
+	positionY: ModalPositionY
 	padding: string
+	showOverlay: boolean
 }
 
-export enum ModalPosition {
-	center,
-	end,
-	start,
-	right,
-	left,
+export enum ModalPositionX {
+	center = "center",
+	right = "right",
+	left = "left",
+}
+
+export enum ModalPositionY {
+	center = "center",
+	start = "start",
+	end = "end",
 }
