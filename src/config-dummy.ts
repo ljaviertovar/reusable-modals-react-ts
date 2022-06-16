@@ -6,7 +6,7 @@ import {
 
 export const INITIAL_CONFIG: ModalConfigDummy = {
 	modal1: {
-		title: "Modal Header",
+		title: "Modal Header 1",
 		showHeader: true,
 		showOverlay: true,
 		positionX: ModalPositionX.center,
@@ -14,7 +14,7 @@ export const INITIAL_CONFIG: ModalConfigDummy = {
 		padding: "20px",
 	},
 	modal2: {
-		title: "Modal Header",
+		title: "Modal Header 2",
 		showHeader: false,
 		showOverlay: true,
 		positionX: ModalPositionX.center,
@@ -22,7 +22,7 @@ export const INITIAL_CONFIG: ModalConfigDummy = {
 		padding: "20px",
 	},
 	modal3: {
-		title: "Modal Header",
+		title: "Modal Header 3",
 		showHeader: false,
 		showOverlay: true,
 		positionX: ModalPositionX.left,
@@ -30,7 +30,7 @@ export const INITIAL_CONFIG: ModalConfigDummy = {
 		padding: "0",
 	},
 	modal4: {
-		title: "Modal Header",
+		title: "Modal Header 4",
 		showHeader: false,
 		showOverlay: true,
 		positionX: ModalPositionX.right,

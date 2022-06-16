@@ -39,8 +39,6 @@ const Modal = ({ children, show, setShow, config }: Props) => {
 		}
 	}, [handleKeyPress, show])
 
-	console.log({ config })
-
 	return (
 		<>
 			{show && (

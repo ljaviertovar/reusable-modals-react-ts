@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components"
 import { lightTheme, darkTheme, GlobalStyles } from "./styles/theme"
 
 import * as S from "./components/modals/styles"
-import { INITIAL_CONFIG } from "./configDummy"
+import { INITIAL_CONFIG } from "./config-dummy"
 
 import imgModal from "./assets/images/imgModal.jpg"
 
