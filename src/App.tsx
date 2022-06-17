@@ -1,3 +1,4 @@
+// @ts-ignore
 import { FC, useState } from "react"
 import Header from "./components/layout/Header"
 import { Buttons, Modal } from "./components/modals"
