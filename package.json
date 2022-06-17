@@ -7,31 +7,6 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview"
 	},
-	"compilerOptions": {
-		"target": "es5",
-		"lib": [
-			"dom",
-			"dom.iterable",
-			"esnext"
-		],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noFallthroughCasesInSwitch": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react",
-		"baseUrl": "src"
-	},
-	"include": [
-		"src"
-	],
 	"dependencies": {
 		"@types/styled-components": "^5.1.25",
 		"react": "^18.0.0",
