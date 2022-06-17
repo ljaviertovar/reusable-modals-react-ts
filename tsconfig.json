@@ -21,9 +21,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src",
     "src/**/*.ts",
-    "@types/**/*.d.ts",
+    "tests/**/*.ts"
   ],
   "references": [
     {
