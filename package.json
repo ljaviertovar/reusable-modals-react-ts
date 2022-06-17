@@ -9,13 +9,25 @@
 	},
 	"compilerOptions": {
 		"target": "es5",
-		"types": [
-			"node"
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
 		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"module": "esnext",
 		"moduleResolution": "node",
-		"include": [
-			"src"
-		]
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react",
+		"baseUrl": "src"
 	},
 	"include": [
 		"src"
