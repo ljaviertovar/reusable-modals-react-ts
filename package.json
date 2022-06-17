@@ -7,6 +7,12 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview"
 	},
+	"compilerOptions": {
+		"types": [
+			"node"
+		],
+		"moduleResolution": "node"
+	},
 	"dependencies": {
 		"@types/styled-components": "^5.1.25",
 		"react": "^18.0.0",
