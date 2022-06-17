@@ -1,8 +1,6 @@
 import { FC, useState } from "react"
 import Header from "./components/layout/Header"
-// import { Buttons, Modal } from "./components/modals"
-import Buttons from "./components/modals/Buttons"
-import Modal from "./components/modals/Modal"
+import { Buttons, Modal } from "./components/modals"
 
 import { ThemeProvider } from "styled-components"
 import { lightTheme, darkTheme, GlobalStyles } from "./styles/theme"
