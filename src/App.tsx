@@ -1,7 +1,6 @@
-// @ts-ignore
 import { FC, useState } from "react"
 import Header from "./components/layout/Header"
-import { Buttons, Modal } from "./components/modals/index"
+import { Buttons, Modal } from "./components/modals"
 
 import { ThemeProvider } from "styled-components"
 import { lightTheme, darkTheme, GlobalStyles } from "./styles/theme"
