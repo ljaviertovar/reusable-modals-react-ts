@@ -1,3 +1,4 @@
+// @ts-ignore
 import Buttons from "./Buttons"
 import Modal from "./Modal"
 
