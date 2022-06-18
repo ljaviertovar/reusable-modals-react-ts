@@ -9,8 +9,6 @@
     ],
     "allowJs": true,
     "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -20,6 +18,7 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
     "jsx": "react-jsx"
   },
   "include": [
