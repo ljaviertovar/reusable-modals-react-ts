@@ -12,10 +12,10 @@ A complete modal with React Portals and styled-components
 :heavy_check_mark: styled-componets
 
 ### 🚀 Run the app
-`npm run dev`
+`yarn dev`
 
 <hr>
 
 :space_invader: Test the app in the following link:
 
-https://skeleton-loading-ecommerce.netlify.app/
+[https://skeleton-loading-ecommerce.netlify.app/](https://resusable-customizable-modals.netlify.app/)
